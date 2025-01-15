@@ -1,6 +1,9 @@
 .header {
+  width: 90%;
   height: 100px;
   background-color: var(--dark-grey);
+  position:fixed;
+  z-index: 100;
 
   &Logo {
     display: flex;
@@ -31,15 +34,7 @@
     }
   }
 
-  h1 {
-    padding: 35px 0 38px 120px;
-    font-size: 40px;
-    font-weight: 300;
-    line-height: 49px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--white);
-  }
+
 
   // &Search {
   //   display: flex;
