@@ -1,0 +1,19 @@
+.movies {
+  padding-bottom: 70px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--white);
+
+  &FoundResult {
+    padding: 24px 0;
+    font-weight: 400;
+  }
+
+  &List {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+  }
+}

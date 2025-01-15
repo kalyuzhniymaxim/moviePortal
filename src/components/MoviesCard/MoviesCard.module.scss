@@ -1,0 +1,32 @@
+.moviesCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 322px;
+
+  &Img {
+    width: 322px;
+    height: 482px;
+  }
+  &Info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    opacity: 0.7;
+  }
+  &Poster {
+    padding-bottom: 14px;
+  }
+  &Title {
+    display: inline-block;
+  }
+  &Year {
+    padding: 4px 8px;
+    border: 2px solid rgba(151, 151, 151, 1);
+    border-radius: 4px;
+  }
+  &Description {
+    opacity: 0.5;
+  }
+}

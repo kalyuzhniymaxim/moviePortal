@@ -1,0 +1,45 @@
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 0 60px;
+  margin: 50px;
+  position: relative;
+
+  &Text {
+    width: 70%;
+    height: 57px;
+    padding-left: 20px;
+    font-size: 20px;
+    color: var(--apricot);
+    background-color: rgba(50, 50, 50, 0.8);
+    border: 1px solid rgba(50, 50, 50, 0.8);
+    border-radius: 4px;
+    outline: none;
+  }
+  &Remove {
+    position: absolute;
+    transform: translateY(50%);
+    left: 62%;
+    width: 30px;
+    height: 30px;
+    fill: var(--apricot);
+    cursor: pointer;
+  }
+
+  &Btn {
+    width: 233px;
+    height: 57px;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--white);
+    background-color: var(--grey);
+    border: 1px solid var(--apricot);
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--dark-grey);
+    }
+  }
+}

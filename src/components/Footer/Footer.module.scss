@@ -1,0 +1,11 @@
+.footer {
+  background-color: var(--dark-grey);
+
+  &Title {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 26px;
+    text-align: center;
+    color: var(--apricot);
+  }
+}

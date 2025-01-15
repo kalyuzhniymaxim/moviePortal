@@ -1,0 +1,86 @@
+@import './styles/normalize.scss';
+
+#root {
+  height: 100%;
+}
+html {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  height: 100%;
+  scroll-behavior: smooth;
+  transition: background-color 200ms linear;
+}
+body {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.8s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  max-width: 1280px;
+  margin: 54px auto;
+}
+.page-container {
+  padding: 0 60px;
+}
+
+.maincontent {
+  flex: 1 1 auto;
+}
+
+html[data-theme='light'] {
+  background-color: var(--light);
+}
+html[data-theme='dark'] {
+  background-color: var(--grey);
+}
+:root {
+  --apricot: rgb(217, 217, 217);
+  --grey: rgba(85, 85, 85);
+  --dark-grey: rgba(66, 66, 66, 1);
+  --black: rgba(35, 35, 35, 1);
+  --white: rgba(228, 228, 228, 1);
+  --light: azure;
+}
