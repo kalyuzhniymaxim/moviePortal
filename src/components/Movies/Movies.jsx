@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Movies.module.scss';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import MoviesCardSkeleton from '../MoviesCard/MoviesCardSkeleton';
+import FilmInformation from '../FilmInformation/FilmInformation';
 import Search from '../Search/Search';
 
 export default function Movies() {
@@ -42,6 +43,7 @@ export default function Movies() {
                 year={year}
                 posterUrl={posterUrl}
                 nameOriginal={nameOriginal}
+                kinopoiskId={kinopoiskId}
               />
             ))}
       </ul>
