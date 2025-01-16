@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-const MoviesCardSceleton = (props) => (
+const MoviesCardSkeleton = (props) => (
   <ContentLoader
     speed={0.9}
     width={322}
@@ -17,4 +17,4 @@ const MoviesCardSceleton = (props) => (
   </ContentLoader>
 );
 
-export default MoviesCardSceleton;
+export default MoviesCardSkeleton;

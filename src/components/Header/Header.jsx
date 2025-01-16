@@ -1,4 +1,3 @@
-
 import ThemeChange from '../ThemeChange/ThemeChange';
 
 import { Link } from 'react-router-dom';
@@ -17,7 +16,6 @@ export default function Header() {
           </Link>
           <ThemeChange />
         </div>
-
       </div>
     </header>
   );
