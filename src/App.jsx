@@ -12,7 +12,7 @@ import MovieInformation from './pages/MovieInformation';
 import ThemeProvider from './prodivers/themeContext';
 
 function App() {
-  const { kinopoiskId } = useParams();
+
   return (
     <div className="container">
       <ThemeProvider>
@@ -21,7 +21,7 @@ function App() {
       <section className="maincontent">
         <div className="page-container">
           <Routes>
-            <Route patch="/:kinopoiskId" element={MovieInformation} />
+            <Route path="/movie/:id" element={<MovieInformation />} />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/signin" element={<Authorisation />} />
