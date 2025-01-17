@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Authorisation from './pages/Authorisation';
-import Registration from './pages/Registration';
 import MovieInformation from './pages/MovieInformation';
 
 import ThemeProvider from './prodivers/themeContext';
@@ -25,7 +24,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/signin" element={<Authorisation />} />
-            <Route path="/signup" element={<Registration />} />
           </Routes>
         </div>
       </section>
