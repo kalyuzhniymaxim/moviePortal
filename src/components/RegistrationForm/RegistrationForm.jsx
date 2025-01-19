@@ -1,22 +1,21 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import styles from './RegistrationForm.module.scss';
 
 export default function SingIn() {
-  const [users, SetUsers] = useState(JSON.parse(localStorage.getItem('user')) || {});
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || {});
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+      setCurrentUser(JSON.parse(loggedInUser));
+      setIsLoggedIn(true);
+    }
+  }, []);
 
-const [currentUser, setCurrentUser] = useState({});
-const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-useEffect(() => {
-  const loggedInUser = localStorage.getItem('loggedInUser');
-  if (loggedInUser) {
-    setCurrentUser(JSON.parse(loggedInUser));
-    setIsLoggedIn(true);
-  }
-}, []);
-
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setCurrentUser({ ...currentUser, [name]: value });
   };
@@ -28,10 +27,7 @@ const handleChange = (e) => {
       return;
     }
     setUsers({ ...users, [currentUser.email]: currentUser });
-    localStorage.setItem(
-      'users',
-      JSON.stringify({ ...users, [currentUser.email]: currentUser })
-    );
+    localStorage.setItem('users', JSON.stringify({ ...users, [currentUser.email]: currentUser }));
     localStorage.setItem('loggedInUser', JSON.stringify(currentUser));
     setIsLoggedIn(true);
   };
@@ -86,11 +82,10 @@ const handleChange = (e) => {
           <button type="submit">Sign Up</button>
         </form>
       ) : (
-        <button type="button" onClick={handleLogout}>
+        <button className={styles.buttonLogOut} type="button" onClick={handleLogout}>
           Log out
         </button>
       )}
     </>
   );
-
 }

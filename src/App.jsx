@@ -15,15 +15,15 @@ function App() {
   return (
     <div className="container">
       <ThemeProvider>
-        <Header />
+        {/* <Header /> */}
       </ThemeProvider>
       <section className="maincontent">
         <div className="page-container">
           <Routes>
             <Route path="/movie/:id" element={<MovieInformation />} />
             <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="/signin" element={<Authorisation />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </section>

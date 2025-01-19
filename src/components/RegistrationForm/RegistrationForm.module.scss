@@ -1,4 +1,7 @@
+
+
 .block {
+  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,6 +25,7 @@
       border: 1px solid black;
     }
     button {
+      margin-top:200px;
       width: 200px;
       height: 50px;
       font-size: 20px;
@@ -33,4 +37,6 @@
       border-radius: 4px;
     }
   }
-  
+  .buttonLogOut{
+    margin-top:200px ;
+  }

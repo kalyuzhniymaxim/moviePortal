@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Search.module.scss';
 
 export default function Search() {
-  const [searchValue, setSearchValue] = useState('a');
+  const [searchValue, setSearchValue] = useState('');
 
   console.log(searchValue);
 
