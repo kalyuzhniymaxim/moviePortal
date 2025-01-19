@@ -1,5 +1,4 @@
-import SingIn from '../components/SignIn/SingIn';
-import { Link } from 'react-router-dom';
+import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
 
 export default function Authorisation() {
   const styles = {
@@ -10,18 +9,7 @@ export default function Authorisation() {
   };
   return (
     <div style={styles}>
-      <h1> SING IN </h1>
-      <SingIn />
-      <Link
-        to="/signup"
-        style={{
-          color: 'var(--apricot)',
-          fontSize: '20px',
-          fontWeight: 'bold',
-        }}
-      >
-        SING UP
-      </Link>
+      <RegistrationForm />
     </div>
   );
 }

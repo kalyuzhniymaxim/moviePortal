@@ -1,0 +1,21 @@
+.filmInformation {
+  display: flex;
+  gap: 200px;
+  margin: 50px;
+
+  img {
+    width: 350px;
+    height: 531px;
+  }
+
+  .filmDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    color: var(--apricot);
+
+    p {
+      font-size: 28px;
+    }
+  }
+}

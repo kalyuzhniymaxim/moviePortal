@@ -1,4 +1,3 @@
-
 import ThemeChange from '../ThemeChange/ThemeChange';
 
 import { Link } from 'react-router-dom';
@@ -13,11 +12,10 @@ export default function Header() {
             <b>movie</b>Portal
           </Link>
           <Link to="/signin">
-            <button className={styles.headerLogoBtn}>Sign In</button>
+            <button className={styles.headerLogoBtn}>Log In</button>
           </Link>
           <ThemeChange />
         </div>
-
       </div>
     </header>
   );
