@@ -1,0 +1,23 @@
+.searchSuggest {
+    color: var(--apricot);
+    background-color: var(--grey);
+    width: 60%;
+    position: absolute;
+  
+    top: 100%;
+    border-radius: 5px;
+  
+    li {
+      padding: 10px 40px;
+      border: 1px solid var(--black);
+      p {
+        font-size: 24px;
+      }
+    //   p:hover {
+    //     font-size: 32px;
+    //     transition: all 0.5s;
+    //     cursor: pointer;
+    //   }
+    }
+  }
+  

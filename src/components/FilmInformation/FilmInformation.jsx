@@ -13,11 +13,12 @@ export default function FilmInformation () {
   //   console.log(kinopoiskId);
 
   React.useEffect(() => {
+    const apiKey = import.meta.env.VITE_API_KEY;
     setIsLoading(true);
     fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
       method: 'GET',
       headers: {
-        'X-API-KEY': '8db19cf6-074e-4d76-8dcd-4d6ae6582783',
+        'X-API-KEY': apiKey,
         'Content-Type': 'application/json',
       },
     })
