@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="container">
       <ThemeProvider>
-        {/* <Header /> */}
+        <Header />
       </ThemeProvider>
       <section className="maincontent">
         <div className="page-container">

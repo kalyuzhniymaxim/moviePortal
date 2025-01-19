@@ -10,16 +10,17 @@ export default function Movies() {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
+    const apiKey = import.meta.env.VITE_API_KEY;
     fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films', {
       method: 'GET',
       headers: {
-        'X-API-KEY': '8db19cf6-074e-4d76-8dcd-4d6ae6582783',
+        'X-API-KEY': apiKey,
         'Content-Type': 'application/json',
       },
     })
       .then((res) => res.json())
       .then((obj) => {
-        console.log(obj);
+        console.log('kinopoisk - ' + obj);
         setFilms(obj.items);
         setIsLoading(false);
       })
