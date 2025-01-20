@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, logOut } from '../../redux/slices/authSlice';
 
 import styles from './RegistrationForm.module.scss';
 
 export default function SingIn() {
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || {});
   const [currentUser, setCurrentUser] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  // console.log(loggedInUser);
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (loggedInUser) {
       setCurrentUser(JSON.parse(loggedInUser));
-      setIsLoggedIn(true);
+      dispatch(logIn());
     }
   }, []);
 
@@ -29,7 +35,7 @@ export default function SingIn() {
     setUsers({ ...users, [currentUser.email]: currentUser });
     localStorage.setItem('users', JSON.stringify({ ...users, [currentUser.email]: currentUser }));
     localStorage.setItem('loggedInUser', JSON.stringify(currentUser));
-    setIsLoggedIn(true);
+    dispatch(logIn());
   };
 
   const handleLogin = (e) => {
@@ -37,7 +43,7 @@ export default function SingIn() {
     const user = users[currentUser.email];
     if (user && user.password === currentUser.password) {
       localStorage.setItem('loggedInUser', JSON.stringify(user));
-      setIsLoggedIn(true);
+      dispatch(logIn());
     } else {
       alert('Неверный логин или пароль.');
     }
@@ -46,20 +52,12 @@ export default function SingIn() {
   const handleLogout = () => {
     localStorage.removeItem('loggedInUser');
     setCurrentUser({});
-    setIsLoggedIn(false);
+    dispatch(logOut());
   };
   return (
     <>
       {!isLoggedIn ? (
         <form onSubmit={handleSubmit} className={styles.block}>
-          {/* <input
-            type="text"
-            name="username"
-            placeholder="User Name"
-            value={currentUser.username || ''}
-            onChange={handleChange}
-            required
-          /> */}
           <input
             type="email"
             name="email"
@@ -82,7 +80,7 @@ export default function SingIn() {
           <button type="submit">Sign Up</button>
         </form>
       ) : (
-        <button className={styles.buttonLogOut} type="button" onClick={handleLogout}>
+        <button type="button" onClick={handleLogout}>
           Log out
         </button>
       )}
