@@ -1,11 +1,14 @@
+import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Authorisation from '../pages/Authorisation';
-import Home from '../pages/Home';
-import MovieInformation from '../pages/MovieInformation';
-import NotFound from '../pages/NotFound';
-import { PageRootLayout } from '../pages/PageRootLayout';
 
-import SearchMovies from '../pages/SearchMovies';
+import { Loader } from '../components/Loader/Loader';
+import  ErrorBoundary  from '../errorBoundary/ErrorBoundary'
+import { NotFound } from '../pages/NotFound';
+import { PageRootLayout } from '../pages/PageRootLayout';
+import { lazyLoadedComponents } from './lazyRoutes';
+
+const { Home, SearchMovies, Authorisation, MovieInformation } = lazyLoadedComponents;
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -13,14 +16,44 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ErrorBoundary>
+              <Home />
+            </ErrorBoundary>
+          </Suspense>
+        ),
       },
       {
         path: '/search',
-        element: <SearchMovies />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ErrorBoundary>
+              <SearchMovies />
+            </ErrorBoundary>
+          </Suspense>
+        ),
       },
-      { path: '/signin', element: <Authorisation /> },
-      { path: '/movie/:id', element: <MovieInformation /> },
+      {
+        path: '/registration',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ErrorBoundary>
+              <Authorisation />
+            </ErrorBoundary>
+          </Suspense>
+        ),
+      },
+      {
+        path: '/movie/:id',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ErrorBoundary>
+              <MovieInformation />
+            </ErrorBoundary>
+          </Suspense>
+        ),
+      },
       {
         path: '*',
         element: <NotFound />,

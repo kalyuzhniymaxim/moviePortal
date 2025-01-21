@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { Loader } from '../Loader/Loader';
 import styles from './SearchSuggest.module.scss';
 
 export default function SearchSuggest({ suggestions, setSuggestions }) {
