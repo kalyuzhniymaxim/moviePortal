@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function useTheme() {
   const [theme, setTheme] = useState(
-    localStorage.getItem('app-theme') || 'dark'
+    localStorage.getItem('app-theme') || 'dark',
   );
 
   useEffect(() => {

@@ -1,4 +1,5 @@
-import { createContext, useMemo, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
+
 import { useTheme } from '../hooks/useTheme';
 
 const ThemeContext = createContext();
@@ -11,7 +12,7 @@ export default function ThemeProvider({ children }) {
       theme,
       setTheme,
     }),
-    [theme]
+    [theme, setTheme],
   );
 
   return (

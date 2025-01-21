@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import styles from './MoviesCard.module.scss';
 
-export default function MoviesCard({ posterUrl, nameRu, year, nameOriginal, kinopoiskId }) {
+export default function MoviesCard({
+  posterUrl,
+  nameRu,
+  year,
+  nameOriginal,
+  kinopoiskId,
+}) {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   console.log(isLoggedIn);
   return (

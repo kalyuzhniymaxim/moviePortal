@@ -2,8 +2,9 @@
   width: 90%;
   height: 100px;
   background-color: var(--dark-grey);
-  position:fixed;
+  position: fixed;
   z-index: 100;
+  opacity: 0.4;
 
   &Logo {
     display: flex;
@@ -27,14 +28,12 @@
       border-radius: 5px;
       color: var(--apricot);
       background-color: var(--dark-grey);
-      border: none
+      border: none;
       // &:hover {
       //   background-color: rgba(70, 70, 70, 0.68);
       // }
     }
   }
-
-
 
   // &Search {
   //   display: flex;

@@ -1,17 +1,15 @@
-import { useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
+import { FilmInformation } from '../components/FilmInformation/FilmInformation';
 import { Loader } from '../components/Loader/Loader';
-import { Movies } from '../components/Movies/Movies';
 import { getApiUrl, useFetch } from '../hooks/useFetch';
 
-export default function SearchMovies() {
-  const [searchParams] = useSearchParams();
-  const searchName = searchParams.get('keyword');
-  const { data, error } = useFetch(getApiUrl(`/films?keyword=${searchName}`));
+export default function MovieInformation() {
+  const { id } = useParams();
+  const { data, error } = useFetch(getApiUrl(`/films/${id}`));
 
   if (error || !data) {
     return <Loader />;
   }
-
-  return <Movies films={data.items} error={error} />;
+  return <FilmInformation filmDetails={data} />;
 }

@@ -1,4 +1,4 @@
-export default function NotFound() {
+export function NotFoundBlock() {
   const styles = {
     textAlign: 'center',
     paddingTop: '200px',
