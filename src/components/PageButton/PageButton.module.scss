@@ -1,0 +1,16 @@
+.pageButton {
+  width: 233px;
+  height: 57px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--apricot);
+  border: 1px solid var(--apricot);
+  border-radius: 4px;
+
+  &:hover {
+    font-size: 22px;
+  }
+}
