@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import Movies from '../components/Movies/Movies';
 
-export default function SearchMovieDetails() {
+export default function SearchMovie() {
   const [suggestionsFilms, setSuggestionsFilms] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
