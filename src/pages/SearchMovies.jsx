@@ -1,36 +1,17 @@
-import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import Movies from '../components/Movies/Movies';
+import { Loader } from '../components/Loader/Loader';
+import { Movies } from '../components/Movies/Movies';
+import { getApiUrl, useFetch } from '../hooks/useFetch';
 
-export default function SearchMovie() {
-  const [suggestionsFilms, setSuggestionsFilms] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
+export default function SearchMovies() {
   const [searchParams] = useSearchParams();
   const searchName = searchParams.get('keyword');
+  const { data, error } = useFetch(getApiUrl(`/films?keyword=${searchName}`));
 
-  useEffect(() => {
-    setIsLoading(true);
-    const apiKey = import.meta.env.VITE_API_KEY;
-    fetch(
-      `https://kinopoiskapiunofficial.tech/api/v2.2/films?keyword=${searchName}`,
-      {
-        method: 'GET',
-        headers: {
-          'X-API-KEY': apiKey,
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((obj) => {
-        setSuggestionsFilms(obj.items);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
-    window.scrollTo(0, 0);
-  }, [searchName]);
+  if (error || !data) {
+    return <Loader />;
+  }
 
-  return <Movies films={suggestionsFilms} isLoading={isLoading} />;
+  return <Movies films={data.items} error={error} />;
 }

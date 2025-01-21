@@ -5,7 +5,10 @@ import MoviesCardSkeleton from '../MoviesCard/MoviesCardSkeleton';
 
 import Search from '../Search/Search';
 
-export default function Movies({ films, isLoading }) {
+export default function Movies({ films, isLoading, error }) {
+    if (error || !films) {
+    return <Loader />;
+  }
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>
