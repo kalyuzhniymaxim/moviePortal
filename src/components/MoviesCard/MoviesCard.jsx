@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
 import styles from './MoviesCard.module.scss';
 
-export default function MoviesCard({
+export function MoviesCard({
   posterUrl,
   nameRu,
   year,
@@ -12,24 +13,25 @@ export default function MoviesCard({
   kinopoiskId,
 }) {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  console.log(isLoggedIn);
+
   return (
-    <Link to={`/movie/${kinopoiskId}`}>
-      <li className={styles.moviesCard}>
+    <li className={styles.moviesCard}>
+      <Link to={`/movie/${kinopoiskId}`}>
         <img className={styles.moviesCardImg} src={posterUrl} alt="poster" />
+      </Link>
+      <div>
         <div className={styles.moviesCardInfo}>
           <p className={styles.moviesCardTitle}>{nameRu ?? nameOriginal}</p>
           <span className={styles.moviesCardYear}>{year}</span>
-          {isLoggedIn && <button>избранное</button>}
         </div>
-      </li>
-    </Link>
+        {isLoggedIn && <FavoriteButton kinopoiskId={kinopoiskId} />}
+      </div>
+    </li>
   );
 }
-
-MoviesCard.PropTypes = {
+MoviesCard.propTypes = {
   posterUrl: PropTypes.string.isRequired,
   nameRu: PropTypes.string,
-  year: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
   nameOriginal: PropTypes.string,
 };
