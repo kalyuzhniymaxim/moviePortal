@@ -5,9 +5,9 @@ import {Search} from '../Search/Search';
 import styles from './Movies.module.scss';
 
 export function Movies({ films, isLoading, error }) {
-  //   if (error || !films) {
-  //   return <Loader />;
-  // }
+    if (error || !films) {
+    return <Loader />;
+  }
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>
