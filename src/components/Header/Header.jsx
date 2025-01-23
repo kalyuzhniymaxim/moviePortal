@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import useAuth from '../../hooks/useAuth';
 import { PageButton } from '../PageButton/PageButton';
-import { Search } from '../Search/Search';
 import { ThemeChange } from '../ThemeChange/ThemeChange';
 import styles from './Header.module.scss';
 
@@ -29,11 +28,8 @@ export function Header() {
               <PageButton text={'Log In'} />
             </Link>
           )}
-
           <ThemeChange />
         </div>
-        <h1>find your movie</h1>
-        <Search />
       </div>
     </header>
   );

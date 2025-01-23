@@ -11,5 +11,5 @@ export default function MovieInformation() {
   if (error || !data) {
     return <Loader />;
   }
-  return <FilmInformation filmDetails={data} />;
+  return <FilmInformation filmDetails={data} showSearch={true}/>;
 }

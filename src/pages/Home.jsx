@@ -9,5 +9,5 @@ export default function Home() {
     return <Loader />;
   }
 
-  return <Movies films={data.items} isLoading={loading} />;
+  return <Movies films={data.items} isLoading={loading} showSearch={true}/>;
 }

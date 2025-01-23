@@ -13,5 +13,5 @@ export default function FavouritesPage() {
   if (error || !data) {
     return <Loader />;
   }
-  return <Movies films={data} isLoading={loading} />;
+  return <Movies films={data} isLoading={loading} showSearch={false} />;
 }
