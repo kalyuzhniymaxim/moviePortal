@@ -1,0 +1,16 @@
+.favoriteButton {
+  width: 100%;
+  color: var(--white);
+  padding: 10px 4px;
+  border: 2px solid rgb(151, 151, 151);
+  border-radius: 4px;
+  background-color: var(--grey);
+}
+
+.favoriteButton:hover {
+  background-color: var(--apricot); /* Изменяем цвет фона при наведении */
+}
+
+.favoriteButton.active {
+  background-color: var(--apricot); /* Цвет фона для активного состояния */
+}

@@ -1,28 +1,18 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { logIn, logOut } from '../../redux/slices/authSlice';
+import useAuth from '../../hooks/useAuth';
 import { PageButton } from '../PageButton/PageButton';
-import styles from './RegistrationForm.module.scss';
+import styles from '../RegistrationForm/RegistrationForm.module.scss';
 
 export function RegistrationForm() {
-  const [users, setUsers] = useState(
-    JSON.parse(localStorage.getItem('users')) || {},
-  );
-  const [currentUser, setCurrentUser] = useState({});
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
-  // console.log(loggedInUser);
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (loggedInUser) {
-      setCurrentUser(JSON.parse(loggedInUser));
-      dispatch(logIn());
-    }
-  }, [dispatch]);
+  const {
+    users,
+    currentUser,
+    setCurrentUser,
+    isLoggedIn,
+    handleLogin,
+    loginUser,
+    handleLogout,
+    addUser,
+  } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,31 +25,10 @@ export function RegistrationForm() {
       alert('Пользователь с таким email уже существует.');
       return;
     }
-    setUsers({ ...users, [currentUser.email]: currentUser });
-    localStorage.setItem(
-      'users',
-      JSON.stringify({ ...users, [currentUser.email]: currentUser }),
-    );
-    localStorage.setItem('loggedInUser', JSON.stringify(currentUser));
-    dispatch(logIn());
+    addUser(currentUser);
+    handleLogin(currentUser);
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const user = users[currentUser.email];
-    if (user && user.password === currentUser.password) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
-      dispatch(logIn());
-    } else {
-      alert('Неверный логин или пароль.');
-    }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('loggedInUser');
-    setCurrentUser({});
-    dispatch(logOut());
-  };
   return (
     <>
       {!isLoggedIn ? (
@@ -80,7 +49,7 @@ export function RegistrationForm() {
             placeholder="Password"
             onChange={handleChange}
           />
-          <PageButton text={'Log in'} handle={handleLogin} />
+          <PageButton text={'Log in'} handle={loginUser} />
           <PageButton text={'Sign Up'} />
         </form>
       ) : (
