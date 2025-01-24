@@ -11,6 +11,7 @@
   border-radius: 4px;
 
   &:hover {
-    font-size: 22px;
+    background-color: var(--black);
+    border: 1px solid var(--black);
   }
 }
