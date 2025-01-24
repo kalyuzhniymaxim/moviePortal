@@ -14,18 +14,19 @@ export function Header() {
       <div className="page-container">
         <div className={styles.headerLogo}>
           <Link to="/">
-            <b>netflix</b>roulette
+            <b>movie</b>Portal
           </Link>
           {loading ? null : isLoggedIn ? (
             <>
-              <PageButton text={'Log out'} handle={handleLogout} />
+              
               <Link to="/favourites">
-                <PageButton text={'Favourites Page'} />
+                <PageButton text={'Избранные'} />
               </Link>
+              <PageButton text={'Выйти'} handle={handleLogout} />
             </>
           ) : (
             <Link to="/registration">
-              <PageButton text={'Log In'} />
+              <PageButton text={'Войти'} />
             </Link>
           )}
           <ThemeChange />

@@ -61,7 +61,7 @@ button {
   align-items: center;
   min-height: 100%;
   // max-width: 1280px;
-  margin: 20px auto;
+  margin: 0 auto;
   position: relative;
 }
 .page-container {
@@ -74,12 +74,13 @@ button {
 
 html[data-theme='light'] {
   background-color: var(--light);
+  
 }
 html[data-theme='dark'] {
   background-color: var(--grey);
 }
 :root {
-  --apricot: rgb(217, 217, 217);
+  --apricot:  rgba(50, 50, 50, 0.8);
   --grey: rgba(85, 85, 85);
   --dark-grey: rgba(66, 66, 66, 1);
   --black: rgba(35, 35, 35, 1);

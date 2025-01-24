@@ -49,11 +49,11 @@ export function RegistrationForm() {
             placeholder="Password"
             onChange={handleChange}
           />
-          <PageButton text={'Log in'} handle={loginUser} />
-          <PageButton text={'Sign Up'} />
+          <PageButton text={'Войти'} handle={loginUser} />
+          <PageButton text={'Создать аккаунт'} />
         </form>
       ) : (
-        <PageButton text={'Log out'} handle={handleLogout} />
+        <PageButton text={'Выйти'} handle={handleLogout} />
       )}
     </>
   );
