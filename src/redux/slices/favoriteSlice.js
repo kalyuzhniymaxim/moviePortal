@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { setLocalStorageFavourite } from '../../utils/LocalStorageUtil';
+
 export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState: {
@@ -9,6 +11,7 @@ export const favoriteSlice = createSlice({
     addToFavorites: (state, action) => {
       const item = action.payload;
       state.favorites.push(item);
+      
     },
     removeFromFavorites: (state, action) => {
       const itemId = action.payload;

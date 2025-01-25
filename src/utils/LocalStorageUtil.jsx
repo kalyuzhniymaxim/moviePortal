@@ -10,3 +10,13 @@ export const setLocalStorageItem = (key, value) => {
 export const removeLocalStorageItem = (key) => {
   localStorage.removeItem(key);
 };
+
+export const setLocalStorageFavourite = (arr) => {
+  const users = getLocalStorageItem('users');
+  const email = getLocalStorageItem('loggedInUser').email;
+
+  if (users.hasOwnProperty(email)) {
+    users[email].favourite = arr;
+    setLocalStorageItem('users', users);
+  }
+};
