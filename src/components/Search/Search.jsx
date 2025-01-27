@@ -31,7 +31,7 @@ export function Search() {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    if (!loading && data.items.length > 0) {
+    if (debouncedQuery.length > 2 && !loading && data.items.length > 0) {
       navigate(`/search?keyword=${query}`);
       setQuery('');
       setData((data.items = []));

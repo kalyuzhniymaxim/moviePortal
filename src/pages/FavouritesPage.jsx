@@ -1,17 +1,20 @@
 import { useSelector } from 'react-redux';
 
-import { Loader } from '../components/Loader/Loader';
-import { Movies } from '../components/Movies/Movies';
-import useFetchMultiple from '../hooks/useFetchMultiple';
+import { FavouritesItem } from '../components/FavouritesItem/FavouritesItem';
+import useAuth from '../hooks/useAuth';
 import { selectFavorites } from '../redux/slices/favoriteSlice';
 
 export default function FavouritesPage() {
   const favorites = useSelector(selectFavorites);
+  const { currentUser } = useAuth();
 
-  const { data, error, loading } = useFetchMultiple(favorites);
-
-  if (error || !data) {
-    return <Loader />;
+  if (!favorites[currentUser.email]?.length) {
+    return <div>No Favourites </div>;
   }
-  return <Movies films={data} isLoading={loading} showSearch={false} />;
+
+  return (
+    <>
+      <FavouritesItem id={favorites[currentUser.email]} />
+    </>
+  );
 }

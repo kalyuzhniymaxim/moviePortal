@@ -30,8 +30,8 @@ export function MoviesCard({
   );
 }
 MoviesCard.propTypes = {
-  posterUrl: PropTypes.string.isRequired,
+  posterUrl: PropTypes.string,
   nameRu: PropTypes.string,
-  year: PropTypes.number.isRequired,
+  year: PropTypes.number,
   nameOriginal: PropTypes.string,
 };

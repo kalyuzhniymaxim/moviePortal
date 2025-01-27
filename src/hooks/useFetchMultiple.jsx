@@ -6,6 +6,13 @@ export default function useFetchMultiple(values, options = {}) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!values || values.length === 0) {
+      setData([]);
+      setLoading(false);
+      setError('No values');
+      return;
+    }
+
     setLoading(true);
     setError(null);
 

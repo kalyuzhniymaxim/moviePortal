@@ -11,12 +11,18 @@ export const removeLocalStorageItem = (key) => {
   localStorage.removeItem(key);
 };
 
-export const setLocalStorageFavourite = (arr) => {
-  const users = getLocalStorageItem('users');
-  const email = getLocalStorageItem('loggedInUser').email;
+export const setLocalStorageHistory = (histories) => {
+  return setLocalStorageItem('histories', histories);
+};
 
-  if (users.hasOwnProperty(email)) {
-    users[email].favourite = arr;
-    setLocalStorageItem('users', users);
-  }
+export const getLocalStorageHistory = () => {
+  return getLocalStorageItem('histories', {});
+};
+
+export const setLocalStorageFavourite = (favourite) => {
+  return setLocalStorageItem('favourite', favourite);
+};
+
+export const getLocalStorageFavourite = () => {
+  return getLocalStorageItem('favourite', {});
 };
