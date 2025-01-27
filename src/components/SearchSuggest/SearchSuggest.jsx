@@ -6,15 +6,18 @@ import styles from './SearchSuggest.module.scss';
 export function SearchSuggest({ data, setData, error, setQuery }) {
   return (
     <ul className={styles.searchSuggest}>
-      {error || data === undefined ? (
+      {error ? (
+        <li className={styles.error}>Error: {error.message}</li>
+      ) : data === undefined ? (
         <Loader />
+      ) : data.length === 0 ? (
+        <li>Ничего не найдено</li>
       ) : (
         data.map(({ nameRu, nameOriginal, kinopoiskId }) => (
           <Link key={kinopoiskId} to={`/movie/${kinopoiskId}`}>
             <li
-              key={kinopoiskId}
               onClick={() => {
-                setData((data.items = []));
+                setData([]);
                 setQuery('');
               }}
             >

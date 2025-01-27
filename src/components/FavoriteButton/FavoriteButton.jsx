@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import useAuth from '../../hooks/useAuth';
 import {
   addToFavorites,
   removeFromFavorites,
@@ -8,15 +9,17 @@ import {
 import styles from './FavoriteButton.module.scss';
 
 export function FavoriteButton({ kinopoiskId }) {
+  const { currentUser } = useAuth();
+  const userId = currentUser?.email;
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
-  const isActive = favorites.includes(kinopoiskId);
+  const isActive = userId && favorites[userId]?.includes(kinopoiskId);
 
   const handleClick = () => {
     if (isActive) {
-      dispatch(removeFromFavorites(kinopoiskId));
+      dispatch(removeFromFavorites({ favouriteId: kinopoiskId, userId }));
     } else {
-      dispatch(addToFavorites(kinopoiskId));
+      dispatch(addToFavorites({ favouriteId: kinopoiskId, userId }));
     }
   };
 

@@ -3,6 +3,8 @@ import React from 'react';
 import {MoviesCard} from '../MoviesCard/MoviesCard';
 import {Search} from '../Search/Search';
 import styles from './Movies.module.scss';
+import { Loader } from '../Loader/Loader';
+
 
 export function Movies({ films, isLoading, error, showSearch = false }) {
     if (error || !films) {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 import { FavoriteButton } from '../FavoriteButton/FavoriteButton';
@@ -22,3 +23,13 @@ export function FilmInformation({ filmDetails }) {
     </div>
   );
 }
+
+FilmInformation.propTypes = {
+  filmDetails: PropTypes.shape({
+    posterUrlPreview: PropTypes.string,
+    nameRu: PropTypes.string,
+    nameOriginal: PropTypes.string,
+    kinopoiskId: PropTypes.number,
+    description: PropTypes.string,
+  }).isRequired,
+};

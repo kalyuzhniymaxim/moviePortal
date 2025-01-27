@@ -1,18 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import {
+  getLocalStorageFavourite,
+  setLocalStorageFavourite,
+} from '../../utils/LocalStorageUtil';
+
 export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState: {
-    favorites: [],
+    favorites: getLocalStorageFavourite(),
   },
   reducers: {
     addToFavorites: (state, action) => {
-      const item = action.payload;
-      state.favorites.push(item);
+      const { userId, favouriteId } = action.payload;
+      if (!state.favorites[userId]) {
+        state.favorites[userId] = [];
+      }
+      state.favorites[userId].push(favouriteId);
+      setLocalStorageFavourite(state.favorites);
     },
     removeFromFavorites: (state, action) => {
-      const itemId = action.payload;
-      state.favorites = state.favorites.filter((item) => item !== itemId);
+      const { userId, favouriteId } = action.payload;
+      if (state.favorites[userId]) {
+        state.favorites[userId] = state.favorites[userId].filter(
+          (id) => id !== favouriteId,
+        );
+      }
+      setLocalStorageFavourite(state.favorites);
     },
   },
 });
