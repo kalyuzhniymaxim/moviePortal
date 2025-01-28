@@ -2,12 +2,13 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import useAuth from '../../hooks/useAuth';
+import { selectIsLoggedIn } from '../../redux/slices/authSlice';
 import { PageButton } from '../PageButton/PageButton';
 import { ThemeChange } from '../ThemeChange/ThemeChange';
 import styles from './Header.module.scss';
 
 export function Header() {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const { handleLogout, loading } = useAuth();
   return (
     <header className={styles.header}>
