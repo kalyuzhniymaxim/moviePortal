@@ -1,19 +1,18 @@
 import React from 'react';
 
-import {MoviesCard} from '../MoviesCard/MoviesCard';
-import {Search} from '../Search/Search';
-import styles from './Movies.module.scss';
 import { Loader } from '../Loader/Loader';
+import { MoviesCard } from '../MoviesCard/MoviesCard';
+import { Search } from '../Search/Search';
+import styles from './Movies.module.scss';
 
-
-export function Movies({ films, isLoading, error, showSearch = false }) {
-    if (error || !films) {
+export function Movies({ films, error, showSearch = false }) {
+  if (error || !films) {
     return <Loader />;
   }
   return (
     <div className={styles.movies}>
       <p className={styles.moviesFoundResult}>
-      {showSearch && <Search />}
+        {showSearch && <Search />}
         <b>{films.length}</b> movies found
       </p>
       <ul className={styles.moviesList}>

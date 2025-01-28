@@ -1,4 +1,5 @@
 import useFetchMultiple from '../../hooks/useFetchMultiple';
+import { Loader } from '../Loader/Loader';
 import { Movies } from '../Movies/Movies';
 
 export function FavouritesItem({ id }) {

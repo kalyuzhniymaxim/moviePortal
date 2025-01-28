@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { selectIsLoggedIn } from '../../redux/slices/authSlice';
+import { selectIsLoggedIn } from '../redux/slices/authSlice';
 import { logIn, logOut } from '../redux/slices/authSlice';
 import {
   getLocalStorageItem,
@@ -47,6 +47,7 @@ export default function useAuth() {
     removeLocalStorageItem('loggedInUser');
     setCurrentUser({});
     dispatch(logOut());
+    navigate('/');
   };
 
   const addUser = (user) => {
