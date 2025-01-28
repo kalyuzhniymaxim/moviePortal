@@ -7,7 +7,7 @@ import { NotFound } from '../pages/NotFound';
 import { PageRootLayout } from '../pages/PageRootLayout';
 import { lazyLoadedComponents } from './lazyRoutes';
 
-const { Home, SearchMovies, Authorisation, MovieInformation,FavouritesPage } =
+const { Home, SearchMovies, Authorisation, MovieInformation, FavouritesPage } =
   lazyLoadedComponents;
 
 export const router = createBrowserRouter([
@@ -67,7 +67,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <NotFound />,
+        element: (
+          <ErrorBoundary>
+            <NotFound />
+          </ErrorBoundary>
+        ),
       },
     ],
   },

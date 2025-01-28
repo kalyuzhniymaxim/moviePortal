@@ -1,8 +1,10 @@
-export function NotFoundBlock() {
-  const styles = {
-    textAlign: 'center',
-    paddingTop: '200px',
-  };
+import styles from './NotFoundBlock.module.scss';
 
-  return <h1 style={styles}>Ни чего не найдено!</h1>;
+
+export function NotFoundBlock() {
+  return (
+    <div className={styles.notFound}>
+      <p>Nothing found!</p>
+    </div>
+  );
 }
