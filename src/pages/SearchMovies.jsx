@@ -1,15 +1,23 @@
-import { useParams } from 'react-router-dom';
+export default function SearchMovies() {
+  const { currentUser } = useAuth();
+  const userId = currentUser?.email;
 
-import { FilmInformation } from '../components/FilmInformation/FilmInformation';
-import { Loader } from '../components/Loader/Loader';
-import { getApiUrl, useFetch } from '../hooks/useFetch';
+  const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const searchName = searchParams.get('keyword');
 
-export default function MovieInformation() {
-  const { id } = useParams();
-  const { data, error } = useFetch(getApiUrl(`/films/${id}`));
+  const { data, error } = useGetMoviesBySearchQuery(searchName);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  useEffect(() => {
+    if (searchName && isLoggedIn && userId) {
+      dispatch(addToHistory({ historiesId: searchName, userId }));
+    }
+  }, [dispatch, searchName, isLoggedIn, userId]);
 
   if (error || !data) {
     return <Loader />;
   }
-  return <FilmInformation filmDetails={data} showSearch={true}/>;
+
+  return <Movies films={data} error={error} showSearch={true} />;
 }
