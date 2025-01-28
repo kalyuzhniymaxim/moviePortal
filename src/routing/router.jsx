@@ -2,9 +2,10 @@ import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { Loader } from '../components/Loader/Loader';
-import ErrorBoundary from '../errorBoundary/ErrorBoundary';
+import {ErrorBoundary} from '../errorBoundary/ErrorBoundary';
 import { NotFound } from '../pages/NotFound';
 import { PageRootLayout } from '../pages/PageRootLayout';
+import { ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
 import { lazyLoadedComponents } from './lazyRoutes';
 
 const { Home, SearchMovies, Authorisation, MovieInformation, FavouritesPage } =

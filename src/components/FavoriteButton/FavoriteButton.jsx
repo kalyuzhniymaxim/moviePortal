@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useAuth from '../../hooks/useAuth';
@@ -15,13 +16,21 @@ export function FavoriteButton({ kinopoiskId }) {
   const dispatch = useDispatch();
   const isActive = userId && favorites[userId]?.includes(kinopoiskId);
 
-  const handleClick = () => {
+  // const handleClick = () => {
+  //   if (isActive) {
+  //     dispatch(removeFromFavorites({ favouriteId: kinopoiskId, userId }));
+  //   } else {
+  //     dispatch(addToFavorites({ favouriteId: kinopoiskId, userId }));
+  //   }
+  // };
+
+  const handleClick = useCallback(() => {
     if (isActive) {
       dispatch(removeFromFavorites({ favouriteId: kinopoiskId, userId }));
     } else {
       dispatch(addToFavorites({ favouriteId: kinopoiskId, userId }));
     }
-  };
+  }, [isActive, dispatch, kinopoiskId, userId]);
 
   return (
     <button
