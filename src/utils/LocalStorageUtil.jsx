@@ -11,14 +11,6 @@ export const removeLocalStorageItem = (key) => {
   localStorage.removeItem(key);
 };
 
-export const setLocalStorageHistory = (histories) => {
-  return setLocalStorageItem('histories', histories);
-};
-
-export const getLocalStorageHistory = () => {
-  return getLocalStorageItem('histories', {});
-};
-
 export const setLocalStorageFavourite = (favourite) => {
   return setLocalStorageItem('favourite', favourite);
 };

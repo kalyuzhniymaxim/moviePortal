@@ -1,8 +1,9 @@
 import useFetchMultiple from '../../hooks/useFetchMultiple';
+import { Loader } from '../Loader/Loader';
 import { Movies } from '../Movies/Movies';
 
 export function FavouritesItem({ id }) {
-  const { data, error, loading } = useFetchMultiple(id);
+  const { data, error } = useFetchMultiple(id);
   if (error || !data) {
     return <Loader />;
   }

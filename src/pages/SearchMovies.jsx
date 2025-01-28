@@ -1,15 +1,20 @@
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
-import { FilmInformation } from '../components/FilmInformation/FilmInformation';
+import { useGetMoviesBySearchQuery } from '../api/kinopoiskApi';
 import { Loader } from '../components/Loader/Loader';
-import { getApiUrl, useFetch } from '../hooks/useFetch';
+import { Movies } from '../components/Movies/Movies';
 
-export default function MovieInformation() {
-  const { id } = useParams();
-  const { data, error } = useFetch(getApiUrl(`/films/${id}`));
+
+export default function SearchMovies() {
+  const [searchParams] = useSearchParams();
+  const searchName = searchParams.get('keyword');
+
+  const { data, error } = useGetMoviesBySearchQuery(searchName);
+
 
   if (error || !data) {
     return <Loader />;
   }
-  return <FilmInformation filmDetails={data} showSearch={true}/>;
+
+  return <Movies films={data} error={error} showSearch={true} />;
 }

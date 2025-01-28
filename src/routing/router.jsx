@@ -2,13 +2,20 @@ import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { Loader } from '../components/Loader/Loader';
-import ErrorBoundary from '../errorBoundary/ErrorBoundary';
+import { ErrorBoundary } from '../errorBoundary/ErrorBoundary';
 import { NotFound } from '../pages/NotFound';
 import { PageRootLayout } from '../pages/PageRootLayout';
+import { ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
 import { lazyLoadedComponents } from './lazyRoutes';
 
-const { Home, SearchMovies, Authorisation, MovieInformation,FavouritesPage } =
-  lazyLoadedComponents;
+const {
+  Home,
+  SearchMovies,
+  Authorisation,
+  MovieInformation,
+  FavouritesPage,
+  
+} = lazyLoadedComponents;
 
 export const router = createBrowserRouter([
   {
@@ -58,16 +65,22 @@ export const router = createBrowserRouter([
       {
         path: '/favourites',
         element: (
-          <Suspense fallback={<Loader />}>
-            <ErrorBoundary>
-              <FavouritesPage />
-            </ErrorBoundary>
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<Loader />}>
+              <ErrorBoundary>
+                <FavouritesPage />
+              </ErrorBoundary>
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
         path: '*',
-        element: <NotFound />,
+        element: (
+          <ErrorBoundary>
+            <NotFound />,
+          </ErrorBoundary>
+        ),
       },
     ],
   },

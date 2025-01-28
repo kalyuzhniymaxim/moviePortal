@@ -1,12 +1,13 @@
 import { useParams } from 'react-router-dom';
 
+import { useGetMoviesByIdQuery } from '../api/kinopoiskApi';
 import { FilmInformation } from '../components/FilmInformation/FilmInformation';
 import { Loader } from '../components/Loader/Loader';
-import { getApiUrl, useFetch } from '../hooks/useFetch';
 
 export default function MovieInformation() {
   const { id } = useParams();
-  const { data, error } = useFetch(getApiUrl(`/films/${id}`));
+
+  const { data, error } = useGetMoviesByIdQuery(id);
 
   if (error || !data) {
     return <Loader />;
