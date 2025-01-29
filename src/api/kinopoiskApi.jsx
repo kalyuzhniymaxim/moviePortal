@@ -12,13 +12,13 @@ export const kinopoiskApi = createApi({
   }),
   endpoints: (build) => ({
     getInitialMovies: build.query({
-      query: () => ({
+      query: (page = 1) => ({
         url: '/v2.2/films',
         params: {
-          page: 2,
+          page: page,
         },
       }),
-      transformResponse: (response) => response.items,
+      transformResponse: (response) => response,
     }),
     getMoviesById: build.query({
       query: (id) => ({
@@ -30,7 +30,7 @@ export const kinopoiskApi = createApi({
       query: (query) => ({
         url: `/v2.2/films?keyword=${query}`,
       }),
-      transformResponse: (response) => response.items,
+      transformResponse: (response) => response,
     }),
   }),
 });

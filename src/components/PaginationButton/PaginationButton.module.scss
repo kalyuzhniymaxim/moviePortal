@@ -1,0 +1,42 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+
+  &Btn {
+    padding: 10px 20px;
+    margin: 20px 0;
+    background: var(--apricot);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    &:active {
+      transform: scale(0.95);
+    }
+    &:hover {
+      font-size: 18px;
+    }
+  }
+  &List {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  &Item {
+    font-weight: bold;
+    padding: 14px;
+    border: 1px solid var(--apricot);
+    border-radius: 10px;
+    color: var(--white);
+    cursor: pointer;
+
+    &Active {
+      background-color: var(--apricot);
+      padding: 16px;
+    }
+  }
+
+  button:disabled {
+    opacity: 0.5;
+  }
+}
