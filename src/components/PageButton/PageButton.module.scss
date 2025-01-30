@@ -15,3 +15,21 @@
     border: 1px solid var(--black);
   }
 }
+
+@media (max-width: 850px) {
+  .pageButton{
+    width: 180px;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+}
+
+@media (max-width: 750px) {
+  .pageButton{
+    width: 140px;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+}

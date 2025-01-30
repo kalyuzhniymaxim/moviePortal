@@ -16,5 +16,5 @@ export default function SearchMovies() {
     return <Loader />;
   }
 
-  return <Movies films={data} error={error} showSearch={true} />;
+  return <Movies films={data.items} error={error} showSearch={true} />;
 }

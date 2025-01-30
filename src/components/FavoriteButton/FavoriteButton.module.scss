@@ -8,9 +8,11 @@
 }
 
 .favoriteButton:hover {
-  background-color: var(--apricot); /* Изменяем цвет фона при наведении */
+  background-color: var(--apricot);
 }
 
 .favoriteButton.active {
-  background-color: var(--apricot); /* Цвет фона для активного состояния */
+  background-color: var(--apricot);
 }
+
+

@@ -20,7 +20,7 @@
   &List {
     display: flex;
     align-items: center;
-    gap: 30px;
+    // gap: 30px;
   }
   &Item {
     font-weight: bold;
@@ -38,5 +38,14 @@
 
   button:disabled {
     opacity: 0.5;
+  }
+}
+
+@media(max-width:500px){
+  .pagination{
+    gap: 10px;
+    &List{
+      gap: 5px;
+    }
   }
 }

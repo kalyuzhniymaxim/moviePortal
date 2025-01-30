@@ -11,8 +11,8 @@ export function Movies({ films, error, showSearch = false }) {
   }
   return (
     <div className={styles.movies}>
+    {showSearch && <Search />}
       <p className={styles.moviesFoundResult}>
-        {showSearch && <Search />}
         <b>{films.length}</b> movies found
       </p>
       <ul className={styles.moviesList}>
