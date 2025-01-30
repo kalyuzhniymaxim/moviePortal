@@ -54,7 +54,7 @@ export function Search() {
         className={styles.searchText}
         type="text"
         onClick={handleFormClick}
-        placeholder="What do you want to watch?"
+        placeholder="Введите название"
       />
       {query && (
         <svg

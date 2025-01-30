@@ -10,17 +10,20 @@
     border-radius: 25px;
   }
   &Info {
+    height: 42px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 8px;
     opacity: 0.7;
+    z-index: 1;
   }
   &Poster {
     padding-bottom: 14px;
   }
   &Title {
     display: inline-block;
+
   }
   &Year {
     padding: 4px 8px;
