@@ -1,0 +1,1 @@
+import{a as t,b as i,j as s,L as m}from"./index-DLt2Spjj.js";import{M as c}from"./Movies-BEGz18IE.js";import"./FavoriteButton-DNpzPDEY.js";function f(){const[a]=t(),o=a.get("keyword"),{data:r,error:e}=i(o);return e||!r?s.jsx(m,{}):s.jsx(c,{films:r.items,error:e,showSearch:!0})}export{f as default};
