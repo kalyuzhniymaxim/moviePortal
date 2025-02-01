@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { Loader } from '../Loader/Loader';
 import styles from './SearchSuggest.module.scss';
@@ -57,3 +58,19 @@ export function SearchSuggest({ data, setData, error, setQuery, setIsOpen }) {
     </ul>
   );
 }
+
+SearchSuggest.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      nameRu: PropTypes.string,
+      nameOriginal: PropTypes.string,
+      kinopoiskId: PropTypes.number.isRequired,
+    })
+  ),
+  setData: PropTypes.func.isRequired,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired
+  }),
+  setQuery: PropTypes.func.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+};

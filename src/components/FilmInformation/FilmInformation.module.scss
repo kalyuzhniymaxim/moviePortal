@@ -2,9 +2,13 @@
   width: 80%;
   display: flex;
   gap: 100px;
-  margin: 200px auto;
+  margin: 150px auto;
 
-  img {
+  button {
+    width: 200px;
+  }
+
+  .filmPoster {
     width: 350px;
     height: 531px;
   }
@@ -12,11 +16,25 @@
   .filmDetails {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    color: var(--apricot);
-
+    gap: 30px;
+    color: var(--white);
+    h1 {
+      color: var(--apricot);
+    }
     p {
       font-size: 28px;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .filmInformation {
+    flex-direction: column;
+    .filmPoster {
+      margin: 0 auto;
+      border-radius: 25px;
+    }
+    .filmDetails{
+      margin-top: -50px;
     }
   }
 }

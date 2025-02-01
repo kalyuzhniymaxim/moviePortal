@@ -16,14 +16,6 @@ export function FavoriteButton({ kinopoiskId }) {
   const dispatch = useDispatch();
   const isActive = userId && favorites[userId]?.includes(kinopoiskId);
 
-  // const handleClick = () => {
-  //   if (isActive) {
-  //     dispatch(removeFromFavorites({ favouriteId: kinopoiskId, userId }));
-  //   } else {
-  //     dispatch(addToFavorites({ favouriteId: kinopoiskId, userId }));
-  //   }
-  // };
-
   const handleClick = useCallback(() => {
     if (isActive) {
       dispatch(removeFromFavorites({ favouriteId: kinopoiskId, userId }));

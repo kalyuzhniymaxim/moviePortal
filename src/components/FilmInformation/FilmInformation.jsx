@@ -15,11 +15,11 @@ export function FilmInformation({ filmDetails }) {
         src={filmDetails.posterUrlPreview}
         alt={filmDetails.nameRu || filmDetails.nameOriginal}
       />
-
       <div className={styles.filmDetails}>
-        {isLoggedIn && <FavoriteButton kinopoiskId={filmDetails.kinopoiskId} />}
+
         <h1>{filmDetails.nameRu || filmDetails.nameOriginal}</h1>
         <p>{filmDetails.description ?? 'Описание фильма в разработке...'}</p>
+        {isLoggedIn && <FavoriteButton kinopoiskId={filmDetails.kinopoiskId} />}
       </div>
     </div>
   );
